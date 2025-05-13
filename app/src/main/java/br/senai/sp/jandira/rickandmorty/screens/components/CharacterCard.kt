@@ -3,6 +3,7 @@ package br.senai.sp.jandira.rickandmorty.screens.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,6 +32,7 @@ fun CharacterCard(
         modifier = Modifier
             .fillMaxWidth()
             .height(110.dp)
+            .padding(bottom = 8.dp)
     ){
         Row(
             modifier = Modifier
@@ -60,9 +62,11 @@ fun CharacterCard(
                 Text(
                     text = name, fontSize = 20.sp
                 )
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = species
                 )
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = status
                 )

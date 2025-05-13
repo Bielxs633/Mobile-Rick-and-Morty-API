@@ -16,6 +16,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -25,9 +27,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.senai.sp.jandira.rickandmorty.R
+import br.senai.sp.jandira.rickandmorty.model.Character
+import br.senai.sp.jandira.rickandmorty.model.Result
+import br.senai.sp.jandira.rickandmorty.service.RetrofitFactory
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
+
+    // Variavel que vai armazenar a lista de personagens da API:
+    var characterList = remember {
+        mutableStateOf(listOf<Character>())
+    }
+
+    // Fazer uma chamada para a API:
+    var call = RetrofitFactory()
+        .getCharacterService()
+         .listAllCharacters()
+
+    call.enqueue(object : Callback<Result> {
+        override fun onResponse(p0: Call<Result>, p1: Response<Result>) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onFailure(p0: Call<Result>, p1: Throwable) {
+            TODO("Not yet implemented")
+        }
+
+    })
 
     Box(
         modifier = Modifier

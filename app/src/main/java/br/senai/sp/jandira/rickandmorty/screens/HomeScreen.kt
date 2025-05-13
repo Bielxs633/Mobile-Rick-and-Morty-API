@@ -1,13 +1,29 @@
 package br.senai.sp.jandira.rickandmorty.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import br.senai.sp.jandira.rickandmorty.R
 
 @Composable
@@ -20,13 +36,52 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Image(
             modifier = Modifier
                 .fillMaxSize(),
-            painter = painterResource(R.drawable.ic_launcher_background),
+            painter = painterResource(R.drawable.rickandmorty2),
             contentDescription = "Rick And Morty Background",
             contentScale = ContentScale.Crop
         )
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xaa000000))
+        ){
+
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(32.dp)
+        ){
+            Text(
+                text = "Rick & Morty",
+                color = Color.White,
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(14.dp))
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                modifier = Modifier
+                    .fillMaxWidth(),
+                trailingIcon = {
+                    IconButton(onClick = {}){
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = "",
+                            tint = Color.White
+                        )
+                    }
+                }
+            )
+            Spacer(modifier = Modifier.height(32.dp))
+            Text(
+                text = "Characters",
+                fontSize = 24.sp,
+                color = Color.White
+            )
+        }
     }
-
-
 }
 
 @Preview(showBackground = true)
